@@ -35,7 +35,7 @@ public class RestLoginController {
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public void register(@RequestParam String email, @RequestParam String password) {
-        User user = new User(email, password);
+        User user = new User(email.toLowerCase(), password);
         String bytes = utils.randomBytes();
         user.setVerificationCode(bytes);
         sU.register(user);
