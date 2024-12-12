@@ -35,8 +35,6 @@ public class ServicesEmail {
                 "</body>" +
                 "</html>";
 
-        //test
-
         helper.setText(emailBody, true);
 
         mailSender.send(message);
