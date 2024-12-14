@@ -61,9 +61,7 @@ public class UserServiceTest {
     void login_UserNotFound() {
         when(userR.findByEmail("test@test.test")).thenReturn(null);
 
-        BadRequestException exception = assertThrows(BadRequestException.class, () -> {
-            servicesUser.login(testUser);
-        });
+        BadRequestException exception = assertThrows(BadRequestException.class, () -> servicesUser.login(testUser));
 
         assertEquals("User not found", exception.getMessage());
 
@@ -76,9 +74,7 @@ public class UserServiceTest {
         when(userR.findByEmail("test@test.test")).thenReturn(testUserEntity);
         when(passwordEncoder.matches("1234", "encoded")).thenReturn(false);
 
-        BadRequestException exception = assertThrows(BadRequestException.class, () -> {
-            servicesUser.login(testUser);
-        });
+        BadRequestException exception = assertThrows(BadRequestException.class, () -> servicesUser.login(testUser));
 
         assertEquals("Bad combination of email and password", exception.getMessage());
 
@@ -93,11 +89,10 @@ public class UserServiceTest {
         when(userR.findByEmail("test@test.test")).thenReturn(testUserEntity);
         when(passwordEncoder.matches("1234", "encoded")).thenReturn(true);
 
-        BadRequestException exception = assertThrows(BadRequestException.class, () -> {
-            servicesUser.login(testUser);
-        });
+        BadRequestException exception = assertThrows(BadRequestException.class, () -> servicesUser.login(testUser));
 
-        assertEquals("User is not verified, please verify it, by clicking in the button of the email received", exception.getMessage());
+        assertEquals("User is not verified, please verify it, by clicking in the button of the email received",
+                exception.getMessage());
 
         verify(userR).findByEmail(testUser.getEmail());
         verify(passwordEncoder).matches(testUser.getPassword(), testUserEntity.getPassword());

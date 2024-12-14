@@ -9,6 +9,7 @@ import org.marino.server.data.models.User;
 import org.marino.server.data.models.entities.GroupEntity;
 import org.marino.server.data.models.entities.UserEntity;
 import org.marino.server.data.models.mappers.GroupMapper;
+import org.marino.server.data.models.mappers.MemberMapper;
 import org.marino.server.data.models.mappers.UserMapper;
 import org.marino.server.data.models.repositories.GroupEntityRepository;
 import org.marino.server.data.models.repositories.MemberEntityRepository;
@@ -45,6 +46,9 @@ public class GroupServiceTest {
 
     @Mock
     private UserMapper userMapper;
+
+    @Mock
+    private MemberMapper memberMapper;
 
     @InjectMocks
     private ServicesGroup groupService;
