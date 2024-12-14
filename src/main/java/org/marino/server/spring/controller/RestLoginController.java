@@ -29,11 +29,6 @@ public class RestLoginController {
         this.utils = utils;
     }
 
-    @GetMapping
-    public String test() {
-        return "test";
-    }
-
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public void register(@RequestParam String email, @RequestParam String password) {

@@ -28,7 +28,7 @@ public class ServicesEmail {
                 "<body>" +
                 "<p>Hello! Thank you for register to Pagao.</p>" +
                 "<p>Please, click the button below to activate your account:</p>" +
-                "<a href=\"http://192.168.1.137:8080/pagao/login/activation?code=" + activationCode + "\" " +
+                "<a href=\"https://informatica.iesquevedo.es/pagao-server/login/activation?code=" + activationCode + "\" " +
                 "style=\"display: inline-block; padding: 10px 20px; font-size: 16px; color: #000000; " +
                 "background-color: #A06E1D; text-decoration: none; border-radius: 5px; border: none; " +
                 "font-weight: bold; text-align: center;\">Activate Account</a>" +
